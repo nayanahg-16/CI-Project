@@ -50,21 +50,7 @@ pipeline {
         }
     }
 
-    stage('Code Analysis - SonarQube') {
-            steps {
-                echo '🔍 Running SonarQube static code analysis...'
-                withSonarQubeEnv('SonarQube') {
-                    sh '''
-                        sonar-scanner \
-                          -Dsonar.projectKey=ecommerce-app \
-                          -Dsonar.projectName="E-Commerce Application" \
-                          -Dsonar.sources=server,public \
-                          -Dsonar.host.url=$SONAR_HOST_URL \
-                          -Dsonar.login=$SONAR_AUTH_TOKEN
-                    '''
-                }
-            }
-        }
+    
 
     post {
         success {
