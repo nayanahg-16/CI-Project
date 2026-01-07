@@ -42,8 +42,8 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
                         echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-                        docker push manjukolkar007/ecommerce-app:${BUILD_NUMBER}
-                        docker push manjukolkar007/ecommerce-app:latest
+                        docker push nayanahg/ecommerce-app:${BUILD_NUMBER}
+                        docker push nayanahg/ecommerce-app:latest
                     '''
                 }
             }
